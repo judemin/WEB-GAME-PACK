@@ -160,27 +160,37 @@ function PingPong() {
       animationFrameId = requestAnimationFrame(gameLoop);
     }
 
-    // Touch controls
-    if (isMobile) {
-      canvas.addEventListener('touchmove', (e) => {
-        e.preventDefault();
-        const rect = canvas.getBoundingClientRect();
-        const root = document.documentElement;
-        const touch = e.touches[0];
+    const handleTouchMove = (e) => {
+      e.preventDefault();
+      const rect = canvas.getBoundingClientRect();
+      const root = document.documentElement;
+
+      // Process all touch points
+      Array.from(e.touches).forEach(touch => {
         const mouseY = (touch.clientY - rect.top - root.scrollTop) / (rect.bottom - rect.top) * canvas.height;
 
         if (touch.clientX < canvas.width / 2) {
           leftPaddle.y = mouseY - leftPaddle.height / 2;
+          // Keep left paddle inside the canvas
+          leftPaddle.y = Math.max(0, Math.min(canvas.height - leftPaddle.height, leftPaddle.y));
         } else {
           rightPaddle.y = mouseY - rightPaddle.height / 2;
+          // Keep right paddle inside the canvas
+          rightPaddle.y = Math.max(0, Math.min(canvas.height - rightPaddle.height, rightPaddle.y));
         }
+      });
+    };
 
-        // Keep paddles inside the canvas
-        leftPaddle.y = Math.max(0, Math.min(canvas.height - leftPaddle.height, leftPaddle.y));
-        rightPaddle.y = Math.max(0, Math.min(canvas.height - rightPaddle.height, rightPaddle.y));
-      }, { passive: false });
+    const handleTouchStart = (e) => {
+      e.preventDefault();
+    };
+
+    // Touch controls
+    if (isMobile) {
+      canvas.addEventListener('touchmove', handleTouchMove, { passive: false });
+      canvas.addEventListener('touchstart', handleTouchStart, { passive: false });
     } else {
-      // Keyboard controls for non-mobile devices
+      // Keyboard controls for non-mobile devices (unchanged)
       document.addEventListener('keydown', handleKeyDown);
       document.addEventListener('keyup', handleKeyUp);
     }
@@ -191,11 +201,14 @@ function PingPong() {
     // Cleanup function
     return () => {
       window.removeEventListener('resize', resizeCanvas);
-      if (!isMobile) {
-        document.removeEventListener('keydown', handleKeyDown);
-        document.removeEventListener('keyup', handleKeyUp);
-      }
-      cancelAnimationFrame(animationFrameId);
+    if (isMobile) {
+      canvas.removeEventListener('touchmove', handleTouchMove);
+      canvas.removeEventListener('touchstart', handleTouchStart);
+    } else {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('keyup', handleKeyUp);
+    }
+    cancelAnimationFrame(animationFrameId);
     };
   }, [player1Score, player2Score]);
 
