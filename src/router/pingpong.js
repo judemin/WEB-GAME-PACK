@@ -220,6 +220,9 @@ function PingPong() {
           ref={canvasRef}
           style={{ border: '2px solid #fff', touchAction: 'none' }}
         />
+        <br/>
+        <br/>
+        <br/>
       </header>
     </div>
   );
