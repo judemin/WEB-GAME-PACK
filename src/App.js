@@ -7,7 +7,7 @@ function Home() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>REACT-WEB-GAME-PACK</h1>
+        <h1>WEB-GAME-PACK</h1>
         <p>
           만든이 : 고강서
         </p>

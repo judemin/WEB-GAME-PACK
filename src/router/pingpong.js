@@ -18,7 +18,7 @@ function PingPong() {
     const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
     let paddleHeight = canvas.height / 5;
-    const paddleWidth = canvas.width * 0.02;
+    const paddleWidth = canvas.width * 0.05;
 
     let ball, leftPaddle, rightPaddle;
 
@@ -88,9 +88,9 @@ function PingPong() {
 
     function drawScore() {
       ctx.font = `${canvas.width * 0.04}px Arial`;
-      ctx.fillStyle = '#ff4d4d'; // Red color for Player 1
+      ctx.fillStyle = '#FF4B4B'; // Red color for Player 1
       ctx.fillText('Player 1: ' + player1Score, canvas.width * 0.05, canvas.height * 0.1);
-      ctx.fillStyle = '#4d4dff'; // Blue color for Player 2
+      ctx.fillStyle = '#61dafb'; // Blue color for Player 2
       ctx.fillText('Player 2: ' + player2Score, canvas.width * 0.7, canvas.height * 0.1);
     }
 
