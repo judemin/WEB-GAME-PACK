@@ -52,8 +52,8 @@ function PingPong() {
 
     // Set canvas size to fit the screen
     const resizeCanvas = () => {
-      canvas.width = window.innerWidth / 2;
-      canvas.height = window.innerHeight / 2;
+      canvas.width = window.innerWidth / 1.3;
+      canvas.height = window.innerHeight / 1.3;
       paddleHeight = canvas.height / 5;
       initializeGameObjects();
     };
@@ -89,9 +89,9 @@ function PingPong() {
     function drawScore() {
       ctx.font = `${canvas.width * 0.04}px Arial`;
       ctx.fillStyle = '#FF4B4B'; // Red color for Player 1
-      ctx.fillText('Player 1: ' + player1Score, canvas.width * 0.05, canvas.height * 0.1);
+      ctx.fillText('' + player1Score, canvas.width * 0.02, canvas.height * 0.1);
       ctx.fillStyle = '#61dafb'; // Blue color for Player 2
-      ctx.fillText('Player 2: ' + player2Score, canvas.width * 0.7, canvas.height * 0.1);
+      ctx.fillText('      ' + player2Score, canvas.width * 0.85, canvas.height * 0.1);
     }
 
     // Update game state
@@ -207,20 +207,6 @@ function PingPong() {
           ref={canvasRef}
           style={{ border: '2px solid #fff', touchAction: 'none' }}
         />
-        <Link
-          to="/"
-          style={{
-            marginTop: '20px',
-            padding: '10px 20px',
-            fontSize: '16px',
-            backgroundColor: '#61dafb',
-            color: 'white',
-            textDecoration: 'none',
-            borderRadius: '5px',
-          }}
-        >
-          Back to Home
-        </Link>
       </header>
     </div>
   );
