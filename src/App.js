@@ -8,20 +8,20 @@ function Home() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>WEB-GAME-PACK</h1>
+      <h1 style={{color: '#AEA1EA'}}>WEB-GAME-PACK</h1>
         <Link 
           to="/pingpong"
           style={{
             marginTop: '20px',
             padding: '10px 20px',
             fontSize: '16px',
-            backgroundColor: '#61dafb',
+            backgroundColor: '#AEA1EA',
             color: 'white',
             textDecoration: 'none',
             borderRadius: '5px',
           }}
         >
-          PingPong
+          탁구 게임
         </Link>
 
         <Link 
@@ -30,13 +30,13 @@ function Home() {
             marginTop: '20px',
             padding: '10px 20px',
             fontSize: '16px',
-            backgroundColor: '#61dafb',
+            backgroundColor: '#AEA1EA',
             color: 'white',
             textDecoration: 'none',
             borderRadius: '5px',
           }}
         >
-          LinkPortal
+          게임 링크
         </Link>
       </header>
     </div>
