@@ -7,7 +7,7 @@ export default function Home() {
     "@type": "WebPage",
     "name": "게임 링크 포털 | 2인용 탁구게임 고강서",
     "description": "게임 링크 포털에서 다양한 게임을 만나보세요. 특히 '2인용 탁구게임 고강서'와 같은 인기 있는 게임도 지원합니다.",
-    "url": "https://your-domain.com",
+    "url": "https://web-game-pack.vercel.app/",
     "keywords": ["게임 링크 포털", "2인용 탁구게임", "고강서"],
   };
 
