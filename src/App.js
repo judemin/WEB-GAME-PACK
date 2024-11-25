@@ -8,7 +8,7 @@ function Home() {
   return (
     <div className="App">
       <header className="App-header">
-      <h1 style={{color: '#AEA1EA'}}>WEB-GAME-PACK</h1>
+      <h1 style={{color: '#AEA1EA'}}>게임 링크 포털(2인용 탁구게임)</h1>
         <Link 
           to="/pingpong"
           style={{
